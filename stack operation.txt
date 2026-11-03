@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<string.h>
+#define MAX 5
+int stack[MAX];
+int top= -1;
+void push()
+{
+    int value;
+    if (top==MAX-1)
+        printf("Stack is overflown");
+    else
+        printf("Enter value to push:");
+        scanf("%d",&value);
+        top=top+1;
+        stack[top]=value;
+        printf("Value is pushed\n");
+}
+void pop()
+{
+
+    if(top== -1)
+        printf("Stack is underflown");
+    else
+        top=top-1;
+        printf("poped values:%d\n",stack[top]);
+}
+void display()
+{
+
+    if(top==-1)
+    {
+        printf("Stack is empty");
+    }
+    else{
+        for(int i=top;i>=0;i--){
+            printf("%d\n",stack[i]);
+        }
+    }
+}
+void main()
+{
+
+    int choice;
+    while(1)
+    {
+        printf("1.push\n2.pop\n3.display\n4.exit\n");
+        printf("Enter choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:push();
+                break;
+            case 2:pop();
+                break;
+            case 3:display();
+                break;
+            case 4:exit(0);
+            default:printf("Invalid choice\n");
+        }
+    }
+}
